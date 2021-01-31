@@ -563,7 +563,7 @@ public class Bot extends TelegramLongPollingBot {
                                     int end = query.lastIndexOf('-');
 
                                     // if height is specified
-                                    if (end != -1)
+                                    if (start < end)
                                     {
                                         // parse width and height
                                         width = Integer.parseInt(query.substring(start, end));
@@ -668,7 +668,7 @@ public class Bot extends TelegramLongPollingBot {
                             SendChatAction typing = new SendChatAction(message.getChatId(),
                                     ActionType.TYPING.toString());
                             execute(typing);
-                            SendMessage sendMessage = new SendMessage(message.getChatId(),messageProps.getProperty("hecu.error.photo.malformed").replaceFirst("\\$",PHOTO_GROUP_LIMIT+""))
+                            SendMessage sendMessage = new SendMessage(message.getChatId(),messageProps.getProperty("hecu.error.photo.malformed").replace("$",PHOTO_GROUP_LIMIT+""))
                                     .setParseMode(ParseMode.HTML).setReplyToMessageId(message.getMessageId());
                             execute(sendMessage);
                         }
