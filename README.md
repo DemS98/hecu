@@ -17,10 +17,10 @@ The bot has been developed using:
 - [Lorem Picsum](https://picsum.photos) by **David Marby & Nijiko Yonskai**
 - [Apache Tika](https://tika.apache.org/)
 
-## Installation
+## Configuration
 I will not provide Google API key and bot token so you have to create a new bot with **BotFather**,
 create a [Custom Search Engine](https://cse.google.com/cse/all) and get a **Custom Search API key**.
-Then create *resources/api.properties* with these properties
+Then create *src/main/resources/api.properties* with these properties
 
 ```
 # Google Search API properties
@@ -35,7 +35,7 @@ picsum.host = picsum.photos
 picsum.path = /:width:/:height:
 ```
 
-and *resources/bot.properties* with these properties
+and *src/main/resources/bot.properties* with these properties
 
 ```
 # Bot properties
@@ -43,9 +43,14 @@ bot.username = [your_bot_username]
 bot.token = [your_bot_token]
 ```
 
-Finally, you need to put all HECU wav sound files in *resources/words* folder. <br/>
+Finally, you need to put all HECU wav sound files in *src/main/resources/words* folder. <br/>
 I cannot publish the audio files in the repository because it is Valve property so you have to purchase
-Half-Life in order to get them. I recommend to purchase it mostly because it's a great game and you're gonna have a lot of fun playing it.
+Half-Life in order to get them. I recommend purchasing it mostly because it's a great game and you're gonna have a lot of fun playing it.
+
+## Installation
+
+Run `mvn clean package` in the root directory (where the *pom.xml* is located) to build the jar. After that, simply run
+`java -jar hecu-1.0.jar` on the built artifact.
 
 ## Instructions
 After starting the bot (by clicking **START** or sending **/start**), you can see all commands by typing **/** 
